@@ -10,3 +10,25 @@ wheels/
 .venv
 .aider*
 .env
+# Configuration files with sensitive data
+config.toml
+.env
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+.venv/
+venv/
+ENV/
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+*.log

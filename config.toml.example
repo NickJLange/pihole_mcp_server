@@ -1,0 +1,31 @@
+# MCP Pi-hole Server Configuration Example
+
+[pihole]
+# URL to the Pi-hole API
+api_url = "http://localhost:80/admin/api.php"
+# Password for Pi-hole API authentication
+application_password = "your_pihole_password_here"
+
+[mcp_server]
+# Host to bind the MCP server to
+host = "0.0.0.0"
+# Port to run the MCP server on
+port = 8000
+
+# Feature flags for the MCP server
+[mcp_server.features]
+enable_metrics = true
+enable_api = true
+enable_web_interface = true
+
+# List of authorized API keys for accessing the MCP server API
+authorized_api_keys = [
+    "your_api_key_1_here",
+    "your_api_key_2_here"
+]
+
+[logging]
+# Log level: "DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"
+level = "INFO"
+# Optional path to log file (comment out to log to stdout only)
+# log_file = "/path/to/mcp-pihole-server.log"
