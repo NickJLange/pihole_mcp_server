@@ -1,6 +1,10 @@
 # PiHole MCP Server
 
-#### **MCP Server Overview**
+## Dear Lord, Why?
+
+We are building this project to enhance the management experience of Pi-hole devices. We believe that natural language processing capabilities can make it easier for users to interact with their Pi-hole devices. We are also building this project to learn more about FastAPI and Retrieval-Augmented Generation (RAG) systems.
+
+### **MCP Server Overview**
 The **MCP Server** is designed to interact with Pi-hole devices using a RESTful API built with FastAPI, allowing for query-based management and retrieval of Pi-hole statistics through a Retrieval-Augmented Generation (RAG) system. This service aims to enhance the Pi-hole management experience with natural language processing capabilities.
 
 ##### **Installation**
@@ -51,7 +55,11 @@ uvicorn main:app --host 0.0.0.0 --port 8000
 
 ---
 
-### README for Developers
+## README for Developers
+
+We are going to use the LLM to scan the API endpoint and generate the code automatically. We are then going to apply a patch from the last known working version and work through the breaks.
+
+We'll keep previous LLM generated code in a separate branch for reference to ensure benchmarking is correct.
 
 #### **Development Guidelines**
 - **Structure**: The project uses FastAPI with dependencies managed via `pyproject.toml` or `requirements.txt`.
@@ -91,24 +99,19 @@ uvicorn main:app --host 0.0.0.0 --port 8000
 - We use an LLM (Language Model) to generate the initial codebase or provide solutions to new features or bug fixes, which is then refined through manual code review and patch application.
 
 **Process:**
-1. **LLM Code Generation:**
-   - Use prompts to ask the LLM to generate code for specific features or issues based on requirements.
+1. Start up pihole in the containers directory
+2. ```cd prompts/; ./run_plan.sh```
+3. Start new branch to compare gameplan.md for material differences
+4. Use gameplan.md to generate the individual prompts for aider.md
+6. Use aider to generate code for specific features or issues based on gameplan.md
+7. Work the diff between the code generated and the previous llm version
+8. Apply the patches from "Working" to clean up the mess
+9. $$$$ profit
 
-2. **Review and Patch:**
-   - After generation, review the code for:
-     - Security concerns
-     - Best practices adherence
-     - Compliance with project standards
-   - Apply necessary patches:
-     ```sh
-     # Example of patch application
-     git apply patch_file.patch
-     ```
-
-3. **Integration Testing:**
+1. **Integration Testing:**
    - Ensure the new code works as expected by running full integration tests.
 
-4. **Documentation Update:**
+1. **Documentation Update:**
    - Document the new feature, fix, or changes, updating both user and developer documentation.
 
 **Policy Notes:**
