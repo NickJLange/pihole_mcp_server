@@ -1,7 +1,7 @@
 # Core dependencies
-python-dotenv==1.0.0
+python-dotenv==1.2.2
 toml==0.10.2
 pydantic==2.5.2
 
 # Testing dependencies
-pytest==7.4.3
+pytest==9.0.3
